@@ -1,0 +1,69 @@
+<!DOCTYPE html>  
+<html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Tecnologia para Estacionamento Inteligente</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+    <header class="header">  
+        <h1>Estacionamento Inteligente</h1>  
+        <p>Identifique vagas de estacionamento disponíveis em tempo real!</p>  
+        <a href="#features" class="btn">Saiba Mais</a>  
+    </header>  
+
+    <section class="features" id="features">  
+        <h2>Funcionalidades</h2>  
+        <div class="feature-item">  
+            <h3>Monitoramento em Tempo Real</h3>  
+            <p>Visualize as vagas disponíveis e ocupadas instantaneamente.</p>  
+        </div>  
+        <div class="feature-item">  
+            <h3>Indicação de Disponibilidade</h3>  
+            <p>Luzes indicativas: verde para vagas livres e vermelho para ocupadas.</p>  
+        </div>  
+        <div class="feature-item">  
+            <h3>Aplicativo Intuitivo</h3>  
+            <p>Interface amigável para fácil navegação e gestão de vagas.</p>  
+        </div>  
+    </section>  
+
+    <section class="live-status">  
+        <h2>Status das Vagas</h2>  
+        <div class="vaga" id="vaga1">Vaga 1 <span class="status" id="status1"></span></div>  
+        <div class="vaga" id="vaga2">Vaga 2 <span class="status" id="status2"></span></div>  
+        <div class="vaga" id="vaga3">Vaga 3 <span class="status" id="status3"></span></div>  
+        <div class="vaga" id="vaga4">Vaga 4 <span class="status" id="status4"></span></div>  
+        <div class="vaga" id="vaga5">Vaga 5 <span class="status" id="status5"></span></div>  
+    </section>  
+
+    <footer class="footer">  
+        <p>Desenvolvido por Tecnologia Estacionamento © 2024</p>  
+    </footer>  
+
+    <script>  
+        const vagasStatus = ['livre', 'ocupada', 'livre', 'ocupada', 'livre']; // Simulação de estado das vagas  
+
+        function atualizarStatus() {  
+            for (let i = 0; i < vagasStatus.length; i++) {  
+                const statusElement = document.getElementById(`status${i + 1}`);  
+                statusElement.textContent = vagasStatus[i] === 'livre' ? '🟢' : '🔴'; // Verde para livre, vermelha para ocupada  
+                statusElement.style.color = vagasStatus[i] === 'livre' ? 'green' : 'red';  
+            }  
+        }  
+
+        // Simula a alteração de status das vagas a cada 5 segundos  
+        setInterval(() => {  
+            // Altera aleatoriamente o status das vagas  
+            for (let i = 0; i < vagasStatus.length; i++) {  
+                vagasStatus[i] = Math.random() < 0.5 ? 'livre' : 'ocupada';  
+            }  
+            atualizarStatus();  
+        }, 5000);  
+
+        // Atualiza a primeira vez  
+        atualizarStatus();  
+    </script>  
+</body>  
+</html>
